@@ -15,4 +15,5 @@ describe('quote middleware', () => {
 
     quote(req, {}, next);
   });
+  
 });
