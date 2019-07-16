@@ -1,8 +1,13 @@
 const quote = require('../lib/middleware/quote');
 
-describe('quote middleware', () => {
-  it('responds with random quote using GET /random', done => {
-    const req = {};
+describe('can get random quote', () => {
+  it('attaches quote to profile based off favoriteCharacter', done => {
+    const req = {
+      body: {
+        name: 'Danny',
+        favoriteCharacter: 'Fry'
+      }
+    };
 
     const next = () => {
       expect(req.quote).toEqual({
@@ -15,5 +20,4 @@ describe('quote middleware', () => {
 
     quote(req, {}, next);
   });
-  
 });
